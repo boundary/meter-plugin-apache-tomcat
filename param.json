@@ -1,0 +1,8 @@
+{
+	"host": "localhost",
+	"port": "8080",
+	"path": "/manager/status",
+	"username": "admin",
+	"password": "password",
+	"pollInterval":5000
+}
