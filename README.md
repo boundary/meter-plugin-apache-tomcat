@@ -1,4 +1,4 @@
-boundary-tomcat-manager-plugin
+Boundary Apache Tomcat Plugin
 ------------------------------
 A Boundary plugin that collects metrics from the Tomcat default [Manager Web Application](http://tomcat.apache.org/tomcat-7.0-doc/manager-howto.html).
 
