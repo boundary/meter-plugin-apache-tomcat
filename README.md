@@ -1,12 +1,17 @@
-Boundary Apache Tomcat Plugin
-------------------------------
+# Boundary Apache Tomcat Plugin (pure Lua/Luvit)
+
 A Boundary plugin that collects metrics from the Tomcat default [Manager Web Application](http://tomcat.apache.org/tomcat-7.0-doc/manager-howto.html).
 
-###Supported OS
+## Prerequisites
 
-|   OS    | Linux | Windows | OS X|
-|:-------:|:-----:|:-------:|:---:|
-|Supported|   v   |    v    |  v  |
+### Supported OS
+
+|     OS    | Linux | Windows | SmartOS | OS X |
+|:----------|:-----:|:-------:|:-------:|:----:|
+| Supported |   v   |    v    |    v    |  v   |
+
+- Written in pure Lua/Luvit (embedded in `boundary-meter`) therefore **no dependencies** are required.
+- Metrics are collected via HTTP requests, therefore **all OSes** should work (tested on **Debian-based Linux** distributions).
 
 #### Boundary Meter Versions V4.0 Or Greater REQUIRED
 
@@ -19,7 +24,7 @@ To get the new meter:
     chmod +x setup_meter.sh
     ./setup_meter.sh
 
-Tomcat server must be configured to run the **manager app**
+#### Tomcat server must be configured to run the **manager app**
 
 ### Plugin Setup
 
