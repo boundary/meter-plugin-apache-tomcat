@@ -1,132 +1,65 @@
 -- [boundary.com] Tomcat Metrics using default Manager Web Application
 -- [author] Gabriel Nicolas Avellaneda <avellaneda.gabriel@gmail.com>
-
-local boundary = require('boundary')
-local http = require('http')
-local base64 = require('./modules/mime')
-local timer = require('timer')
+local framework = require('./modules/framework')
+local Plugin = framework.Plugin
+local WebRequestDataSource = framework.WebRequestDataSource
 local string = require('string')
-local table = require('table')
-local os = require('os')
-local fs = require('fs')
-local parser = require('./modules/parser')
-local math = require('math')
 
--- default parameter values
-local host = 'localhost'
-local port = 8080
-local path = '/manager/status'
-local username = 'admin'
-local password = 'password'
-local source = os.hostname()
-local pollInterval = 5000
+local round = framework.util.round
+local auth = framework.util.auth
 
--- try to get parameters from plugin instance
-if (boundary.param ~= nil) then
- host = boundary.param['host'] or host
- port = boundary.param['port'] or port
- path = boundary.param['path'] or path
- username = boundary.param['username'] or username
- password = boundary.param['password'] or password
- pollInterval = boundary.param['pollInterval'] or pollInterval
- source = boundary.param['source'] or source
+local function parseMetric(data, pattern)
+  local _, _, val = string.find(data, pattern)
+  p(val)
+
+  return tonumber(round(val, 2))
 end
 
-print("_bevent:Boundary Tomcat Manager Status plugin : version 1.0|t:info|tags:tomcat,plugin")
+local function parse(data)
+  local vals = {}
 
--- Some helper functions
-function base64Encode(s)                                                      
-	return base64.b64(s)                                                      
-end                                                                           
+  vals['TOMCAT_JVM_FREE_MEMORY'] = parseMetric(data, 'Free memory: (%d+%.%d+) MB')
+  vals['TOMCAT_JVM_TOTAL_MEMORY'] = parseMetric(data, 'Total memory: (%d+%.%d+) MB')
+  vals['TOMCAT_HTTP_CURRENT_THREAD_COUNT'] = parseMetric(data, 'Current thread count: (%d+)')
+  vals['TOMCAT_HTTP_CURRENT_THREAD_BUSY'] = parseMetric(data, 'Current thread busy: (%d+)')
+  vals['TOMCAT_HTTP_MAX_PROCESSING_TIME'] = parseMetric(data, 'Max processing time: (%d+) ms')
+  vals['TOMCAT_HTTP_REQUEST_COUNT'] = parseMetric(data, 'Request count: (%d+)')
+  vals['TOMCAT_HTTP_ERROR_COUNT'] = parseMetric(data, 'Error count: (%d+)')
+  vals['TOMCAT_HTTP_BYTES_SENT'] = parseMetric(data, 'Bytes sent: (%d+%.%d+) MB')
+  vals['TOMCAT_HTTP_BYTES_RECEIVED'] = parseMetric(data, 'Bytes received: (%d+%.%d+) MB')
+  vals['TOMCAT_MEMPOOL_HEAP_CMS_OLD_GEN'] = parseMetric(data, 'CMS Old Gen</td><td>Heap memory</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB %((%d+)%%%)</td>')
+  vals['TOMCAT_MEMPOOL_HEAP_EDEN_SPACE'] = parseMetric(data, 'Eden Space</td><td>Heap memory</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB %((%d+)%%%)</td>')
+  vals['TOMCAT_MEMPOOL_HEAP_SURVIVOR_SPACE'] = parseMetric(data, 'Survivor Space</td><td>Heap memory</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB %((%d+)%%%)</td>')
+  vals['TOMCAT_MEMPOOL_NONHEAP_CMS_PERM_GEN'] = parseMetric(data, 'CMS Perm Gen</td><td>Non%-heap memory</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB %((%d+)%%%)</td>')
+  vals['TOMCAT_MEMPOOL_NONHEAP_CODE_CACHE'] = parseMetric(data, 'Code Cache</td><td>Non%-heap memory</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB %((%d+)%%%)</td>')
 
-function isEmpty(s)
-	return s == '' or s == nil
+  return vals
 end
 
-function currentTimestamp()
-	return os.time()
+local params = framework.params
+params.name = 'Boundary Tomcat plugin'
+params.version = '1.1'
+
+local options = {}
+options.host = params.host
+options.port = params.port
+options.path = params.path
+options.source = params.source
+options.auth = auth(params.username, params.password)
+--options.waint_for_end = true
+-- TODO: Specify protocol?
+
+local data_source = WebRequestDataSource:new(options)
+--data_source:on('data', p)
+local plugin = Plugin:new(params, data_source)
+function plugin:onParseValues(data, extra)
+  if extra.status_code < 200 or extra.status_code >= 300 then
+    self:error('HTTP Status Code ' .. extra.status_code)
+    return 
+  end
+
+  local vals = parse(data)
+  return vals
 end
 
-function round(val, decimal)
-	if (decimal) then
-		return math.floor( (val * 10^decimal) + 0.5) / (10^decimal)
-	else
-	    return math.floor(val+0.5)
-	end
-end
-
-function authHeader(username, password)                                       
-	return {Authorization = 'Basic ' .. 
-				base64Encode(username .. ':' .. password)}
-end                                                                           
-
-function parse(data)
-
-	local vals = parser.parse(data) 
-
-	return vals
-end
-
-local headers = {}
-if not isEmpty(username) then
-	headers = authHeader(username, password)
-end
-
-local reqOptions = {                                                         
-	host = host,                                                             
- 	port = port,                                                             
- 	path = path,                                                             
- 	headers = headers
-}
-
-function poll()
-
-	getStatus(reqOptions,
-		function (data)
-			local vals = parse(data)
-			report(vals, source, currentTimestamp())
-		end)
-	timer.setTimeout(pollInterval, poll)
-end
-
-function formatMetric(metric, value, source, timestamp)
-	return string.format('%s %1.2f %s %s', metric, round(value, 2), source, timestamp)
-end
-
-function report(metrics, source, timestamp)
-	for metric, value in pairs(metrics) do
-		print(formatMetric(metric, value, source, timestamp))
-	end
-end
-
-function getStatus(reqOptions, successFunc)                                 
-	local req = http.request(                                           
-		reqOptions,                                                         
-		function (res)                                                      
-			local data = ''                                             
-	                        	                                                                                            
-	        res:on('error', function(err)                               
-	        	msg = tostring(err)                                 
-			process.stderr:write('Error while receiving a response: ' .. msg)  
-	        end)                                                        
-	                        	                                	                                                                                                                                            
-	        res:on('data', function(chunk)                              
-	        	data = data .. chunk                                
-	        end)                                                        
-	        
-	       	res:on('end', function()                                    
-	       		successFunc(data)                                   
-	       	end)                                                        
-	       
-		end)                                                                
-	      
-	req:on('error', function(err)                                       
-		msg = tostring(err)                                         
-	   	process.stderr:write('Error while sending a request: ' .. msg)             
-	end)                                                                
-	     
-	req:done()                                                          
-end 
-
--- Start pooling for metrics
-poll()
+plugin:run()
