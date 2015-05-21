@@ -60,12 +60,19 @@
         "required": true
     },
     {
+        "title" : "Source",
+        "name" : "source",
+        "description" : "The Source to display in the legend for the tomcat data. It will default to the hostname of the server",
+        "type" : "string",
+        "required" : false
+    }, 
+    {
         "title": "Poll Time (ms)",
         "name": "pollInterval",
-        "description": "The Poll Interval to call the command. Defaults 5 seconds",
+        "description": "The Poll Interval to call the command. Defaults 1000 ms (1 sec.)",
         "type": "string",
-        "default": 5000,
+        "default": 1000,
         "required": false
-        }
+    }
     ]
 }

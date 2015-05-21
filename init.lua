@@ -1,4 +1,3 @@
---
 -- Copyright 2015 Boundary, Inc.
 --
 -- Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,7 +11,7 @@
 -- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 -- See the License for the specific language governing permissions and
 -- limitations under the License.
---
+
 local framework = require('framework')
 local Plugin = framework.Plugin
 local WebRequestDataSource = framework.WebRequestDataSource
@@ -63,7 +62,7 @@ local data_source = WebRequestDataSource:new(options)
 local plugin = Plugin:new(params, data_source)
 function plugin:onParseValues(data, extra)
   if not isHttpSuccess(extra.status_code) then
-    self:emitEvent('error', 'HTTP Status Code ' .. extra.status_code) 
+    self:emitEvent('error', 'HTTP status code ' .. extra.status_code) 
     return
   end
 

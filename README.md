@@ -1,4 +1,6 @@
-# Boundary Apache Tomcat Plugin (pure Lua/Luvit)
+Boundary Apache Tomcat Plugin
+=============================
+
 
 A Boundary plugin that collects metrics from the Tomcat default [Manager Web Application](http://tomcat.apache.org/tomcat-7.0-doc/manager-howto.html).
 
@@ -51,7 +53,8 @@ Then verify that statistics are being collected by visiting http://yourserver.co
 |Path                  |path            |string   |The URI path to gain access to the admin manager                                         |
 |User Name             |username        |string   |The user name to gain access to the admin manager                                        |
 |Password              |password        |string   |The password to gain access to the admin manager                                         |
-|Poll Interval         |pollInterval    |integer  |How often (in milliseconds) to poll the Apache Tomcat node for metrics (default: 5000).  |
+|Poll Interval         |pollInterval    |integer  |How often (in milliseconds) to poll the Apache Tomcat node for metrics (default: 1000).  |
+|Source                |source          |string   |The source to display in the leged for this instance.                                    |
 
 ### Metrics Collected
 Tracks the following metrics for Apache Tomcat
@@ -70,9 +73,9 @@ Tracks the following metrics for Apache Tomcat
 |TOMCAT_MEMPOOL_HEAP_EDEN_SPACE| Eden Space Heap memory pool usage (%)|
 |TOMCAT_MEMPOOL_HEAP_CMS_OLD_GEN| CMS Old Gen Heap memory pool usage (%)|
 |TOMCAT_MEMPOOL_HEAP_SURVIVOR_SPACE| Survivor Space memory pool usage (%)|
-|TOMCAT_MEMPOOL_NONHEAP_CMS_PERM_GEN| CMS Perm Gen Non-heap memory pool usage (%)|_
+|TOMCAT_MEMPOOL_NONHEAP_CMS_PERM_GEN| CMS Perm Gen Non-heap memory pool usage (%)|
 |TOMCAT_MEMPOOL_NONHEAP_CODE_CACHE| Code Cache memory pool usage (%)|
 
 ### References
 
-http://tomcat.apache.org/
+[http://tomcat.apache.org/](http://tomcat.apache.org/)
