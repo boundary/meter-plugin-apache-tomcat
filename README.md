@@ -1,7 +1,6 @@
 Boundary Apache Tomcat Plugin
 =============================
 
-
 A Boundary plugin that collects metrics from the Tomcat default [Manager Web Application](http://tomcat.apache.org/tomcat-7.0-doc/manager-howto.html).
 
 ## Prerequisites
@@ -15,15 +14,14 @@ A Boundary plugin that collects metrics from the Tomcat default [Manager Web App
 - Written in pure Lua/Luvit (embedded in `boundary-meter`) therefore **no dependencies** are required.
 - Metrics are collected via HTTP requests, therefore **all OSes** should work (tested on **Debian-based Linux** distributions).
 
-#### Boundary Meter Versions V4.0 or later
+### Boundary Meter Versions V4.0 or later
 
-- To install new meter go to Settings->Installation or [see instructons|https://help.boundary.com/hc/en-us/sections/200634331-Installation]. 
-- To upgrade the meter to the latest version - [see instructons|https://help.boundary.com/hc/en-us/articles/201573102-Upgrading-the-Boundary-Meter].
-
-#### Tomcat server must be configured to run the **manager app**
+- To install new meter go to Settings->Installation or [see instructons](https://help.boundary.com/hc/en-us/sections/200634331-Installation). 
+- To upgrade the meter to the latest version - [see instructons](https://help.boundary.com/hc/en-us/articles/201573102-Upgrading-the-Boundary-Meter).
 
 ### Plugin Setup
 
+#### Tomcat Server Configuration
 The Boundary Tomcat Server plugin depends on the manager app module for collecting metrics. The sections below provide the procedures to enable and configure the server-stats module.
 
 ##### Install the Tomcat Manager Webapp:
@@ -44,7 +42,7 @@ The Boundary Tomcat Server plugin depends on the manager app module for collecti
 
 Then verify that statistics are being collected by visiting http://yourserver.com/manager/status
 
-#### Plugin Configuration Fields
+### Plugin Configuration Fields
 
 |Setting Name          |Identifier      |Type     |Description                                                                              |
 |:---------------------|----------------|---------|:----------------------------------------------------------------------------------------|
@@ -57,7 +55,6 @@ Then verify that statistics are being collected by visiting http://yourserver.co
 |Source                |source          |string   |The source to display in the leged for this instance.                                    |
 
 ### Metrics Collected
-Tracks the following metrics for Apache Tomcat
 
 | Metric Name | Description |
 |:------------|:-----------:|

@@ -18,7 +18,8 @@
         "TOMCAT_MEMPOOL_HEAP_CMS_OLD_GEN",
         "TOMCAT_MEMPOOL_HEAP_SURVIVOR_SPACE",
         "TOMCAT_MEMPOOL_NONHEAP_CMS_PERM_GEN",
-        "TOMCAT_MEMPOOL_NONHEAP_CODE_CACHE"],
+        "TOMCAT_MEMPOOL_NONHEAP_CODE_CACHE"
+    ],
     "paramSchema": [
     {
         "title": "Host",
@@ -62,7 +63,7 @@
     {
         "title" : "Source",
         "name" : "source",
-        "description" : "The Source to display in the legend for the tomcat data. It will default to the hostname of the server",
+        "description" : "The Source to display in the legend for the Tomcat data. It will default to the hostname of the server",
         "type" : "string",
         "required" : false
     }, 
@@ -70,7 +71,7 @@
         "title": "Poll Time (ms)",
         "name": "pollInterval",
         "description": "The Poll Interval to call the command. Defaults 1000 ms (1 sec.)",
-        "type": "string",
+        "type": "number",
         "default": 1000,
         "required": false
     }
