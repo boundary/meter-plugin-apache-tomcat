@@ -2,70 +2,78 @@
     "description": "A Boundary plugin for Tomcat Manager App status page metrics",
     "icon" : "icon.png",
     "command": "boundary-meter init.lua",
+    "postExtract" : "",
     "metrics" : [
         "TOMCAT_JVM_FREE_MEMORY",
         "TOMCAT_JVM_TOTAL_MEMORY",
         "TOMCAT_HTTP_CURRENT_THREAD_COUNT",
-    	"TOMCAT_HTTP_CURRENT_THREAD_COUNT",
+        "TOMCAT_HTTP_CURRENT_THREAD_COUNT",
         "TOMCAT_HTTP_CURRENT_THREAD_BUSY",
         "TOMCAT_HTTP_MAX_PROCESSING_TIME",
-    	"TOMCAT_HTTP_REQUEST_COUNT",
+        "TOMCAT_HTTP_REQUEST_COUNT",
         "TOMCAT_HTTP_ERROR_COUNT",
         "TOMCAT_HTTP_BYTES_SENT",
         "TOMCAT_HTTP_BYTES_RECEIVED",
-    	"TOMCAT_MEMPOOL_HEAP_EDEN_SPACE",
+        "TOMCAT_MEMPOOL_HEAP_EDEN_SPACE",
         "TOMCAT_MEMPOOL_HEAP_CMS_OLD_GEN",
         "TOMCAT_MEMPOOL_HEAP_SURVIVOR_SPACE",
-    	"TOMCAT_MEMPOOL_NONHEAP_CMS_PERM_GEN",
-        "TOMCAT_MEMPOOL_NONHEAP_CODE_CACHE"],
-    "postExtract" : "",
+        "TOMCAT_MEMPOOL_NONHEAP_CMS_PERM_GEN",
+        "TOMCAT_MEMPOOL_NONHEAP_CODE_CACHE"
+    ],
     "paramSchema": [
-   	{
-            "title": "Host",
-            "name": "host",
-            "description": "Host where Apache Tomcat is running",
-            "type": "string",
-            "default": "localhost",
-            "required": true
-	},
-	{
-	    "title": "Port",
-	    "name": "port",
-	    "description": "Port where Apache Tomcat is running",
-	    "default": "8080",
-	    "required": true
-	},
-	{
-	    "title": "Path",
-	    "name": "path",
-	    "description": "Path to the Tomcat Manager App status page (ie. /manager/status).",
-	    "type": "string",
-	    "default": "/manager/status",
-	    "required": true
-	},
-   	{
-   	    "title": "Username",
-   	    "name": "username",
-   	    "description": "Username with access to the Tomcat Manager App",
-   	    "type": "string",
-   	    "default": "admin",
-   	    "required": true
-	},
-	{
-	    "title": "Password",
-	    "name": "password",
-	    "description": "Password for the Tomcat Mannager App",
-	    "type": "string",
-	    "default": "password",
-	    "required": true
-	},
-        {
-            "title": "Poll Time (ms)",
-            "name": "pollInterval",
-            "description": "The Poll Interval to call the command. Defaults 5 seconds",
-            "type": "string",
-            "default": 5000,
-            "required": false
-        }
+    {
+        "title": "Host",
+        "name": "host",
+        "description": "Host where Apache Tomcat is running",
+        "type": "string",
+        "default": "localhost",
+        "required": true
+    },
+    {
+        "title": "Port",
+        "name": "port",
+        "description": "Port where Apache Tomcat is running",
+        "default": "8080",
+        "required": true
+    },
+    {
+        "title": "Path",
+        "name": "path",
+        "description": "Path to the Tomcat Manager App status page (ie. /manager/status).",
+        "type": "string",
+        "default": "/manager/status",
+        "required": true
+    },
+    {
+        "title": "Username",
+        "name": "username",
+        "description": "Username with access to the Tomcat Manager App",
+        "type": "string",
+        "default": "admin",
+        "required": true
+    },
+    {
+        "title": "Password",
+        "name": "password",
+        "description": "Password for the Tomcat Mannager App",
+        "type": "string",
+        "default": "password",
+        "required": true
+    },
+    {
+        "title" : "Source",
+        "name" : "source",
+        "description" : "The Source to display in the legend for the Tomcat data. It will default to the hostname of the server",
+        "type" : "string",
+        "required" : false
+    }, 
+    {
+        "title": "Poll Time (ms)",
+        "name": "pollInterval",
+        "description": "The Poll Interval to call the command. Defaults 1000 ms (1 sec.)",
+        "type": "number",
+        "default": 1000,
+        "required": false
+    }
     ]
 }
