@@ -1,11 +1,25 @@
--- [boundary.com] Tomcat Metrics using default Manager Web Application
--- [author] Gabriel Nicolas Avellaneda <avellaneda.gabriel@gmail.com>
-local framework = require('./modules/framework')
+--
+-- Copyright 2015 Boundary, Inc.
+--
+-- Licensed under the Apache License, Version 2.0 (the "License");
+-- you may not use this file except in compliance with the License.
+-- You may obtain a copy of the License at
+--
+--    http://www.apache.org/licenses/LICENSE-2.0
+--
+-- Unless required by applicable law or agreed to in writing, software
+-- distributed under the License is distributed on an "AS IS" BASIS,
+-- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-- See the License for the specific language governing permissions and
+-- limitations under the License.
+--
+local framework = require('framework')
 local Plugin = framework.Plugin
 local WebRequestDataSource = framework.WebRequestDataSource
 local string = require('string')
 local round = framework.util.round
 local auth = framework.util.auth
+local isHttpSuccess = framework.util.isHttpSuccess
 
 local function parseMetric(data, pattern)
   local val = string.match(data, pattern)
@@ -48,9 +62,9 @@ options.auth = auth(params.username, params.password)
 local data_source = WebRequestDataSource:new(options)
 local plugin = Plugin:new(params, data_source)
 function plugin:onParseValues(data, extra)
-  if extra.status_code < 200 or extra.status_code >= 300 then
-    self:printError('HTTP Status Code ' .. extra.status_code)
-    return 
+  if not isHttpSuccess(extra.status_code) then
+    self:emitEvent('error', 'HTTP Status Code ' .. extra.status_code) 
+    return
   end
 
   local vals = parse(data)
@@ -58,3 +72,4 @@ function plugin:onParseValues(data, extra)
 end
 
 plugin:run()
+
