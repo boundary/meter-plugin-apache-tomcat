@@ -65,7 +65,7 @@
         "title": "Password",
         "name": "password",
         "description": "Password for the Tomcat Mannager App",
-        "type": "string",
+        "type": "password",
         "default": "password",
         "required": true
     },
