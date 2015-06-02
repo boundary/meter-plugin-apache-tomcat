@@ -1,4 +1,7 @@
 {
+    "name" : "Boundary Apache Tomcat Plugin",
+    "version" : "2.0",
+    "tags" : "tomcat",
     "description": "A Boundary plugin for Tomcat Manager App status page metrics",
     "icon" : "icon.png",
     "command": "boundary-meter init.lua",
