@@ -53,9 +53,6 @@ local function parse(data)
 end
 
 local params = framework.params
-params.name = 'Boundary Tomcat plugin'
-params.tags = 'tomcat'
-params.version = '2.0'
 
 local options = {}
 options.host = params.host
