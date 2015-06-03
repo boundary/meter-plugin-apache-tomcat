@@ -65,7 +65,7 @@ local data_source = WebRequestDataSource:new(options)
 local plugin = Plugin:new(params, data_source)
 function plugin:onParseValues(data, extra)
   if not isHttpSuccess(extra.status_code) then
-    self:emitEvent('error', 'HTTP status code ' .. extra.status_code) 
+    self:emitEvent('error', plugin.source .. ' HTTP Error - ' .. extra.status_code, plugin.source, plugin.source, 'HTTP status code ' .. extra.status_code) 
     return
   end
 
