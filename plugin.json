@@ -1,6 +1,8 @@
 {
     "name" : "Boundary Apache Tomcat Plugin",
-    "version" : "2.0",
+    "version" : "0.9.0",
+    "meterVersionRequired" : "4.2.0-611",
+    "os" : [ "Linux", "Windows", "SmartOS", "OS X" ], 
     "tags" : "tomcat",
     "description": "A Boundary plugin for Tomcat Manager App status page metrics",
     "icon" : "icon.png",
