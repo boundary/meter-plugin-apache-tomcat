@@ -64,7 +64,7 @@
         "description": "Username with access to the Tomcat Manager App",
         "type": "string",
         "default": "admin",
-        "required": true
+        "required": false 
     },
     {
         "title": "Password",
@@ -72,7 +72,7 @@
         "description": "Password for the Tomcat Mannager App",
         "type": "password",
         "default": "password",
-        "required": true
+        "required": false 
     },
     {
         "title": "Poll Interval (ms)",
