@@ -63,7 +63,7 @@
         "name": "username",
         "description": "Username with access to the Tomcat Manager App",
         "type": "string",
-        "default": "admin",
+        "default": "",
         "required": false 
     },
     {
@@ -71,7 +71,7 @@
         "name": "password",
         "description": "Password for the Tomcat Mannager App",
         "type": "password",
-        "default": "password",
+        "default": "",
         "required": false 
     },
     {
