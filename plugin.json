@@ -46,9 +46,9 @@
         "title": "Port",
         "name": "port",
         "description": "Port where Apache Tomcat is running",
-        "type" : "string",
-        "default": "8080",
-        "required": true
+        "type" : "integer",
+        "default": 8080,
+        "required": false 
     },
     {
         "title": "Path",
