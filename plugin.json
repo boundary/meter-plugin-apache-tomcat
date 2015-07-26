@@ -39,7 +39,7 @@
         "name": "host",
         "description": "Host where Apache Tomcat is running",
         "type": "string",
-        "default": "localhost",
+        "default": "127.0.0.1",
         "required": true
     },
     {
@@ -47,7 +47,7 @@
         "name": "port",
         "description": "Port where Apache Tomcat is running",
         "type" : "integer",
-        "default": 8080,
+        "default": 80,
         "required": false 
     },
     {
