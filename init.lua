@@ -15,7 +15,6 @@
 local framework = require('framework')
 local Plugin = framework.Plugin
 local WebRequestDataSource = framework.WebRequestDataSource
-local string = require('string')
 local round = framework.util.round
 local auth = framework.util.auth
 local isHttpSuccess = framework.util.isHttpSuccess
@@ -25,7 +24,7 @@ local compose = framework.functional.compose
 local notEmpty = framework.string.notEmpty
 
 local function parseMetric(data, pattern)
-  local val = string.match(data, pattern)
+  local val = data:match(pattern)
   return tonumber(round(val, 2))
 end
 
