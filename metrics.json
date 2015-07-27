@@ -4,7 +4,7 @@
     "defaultResolutionMS": 1000,
     "description": "Total number of bytes received by Tomcat from the start of the process.",
     "displayName": "Tomcat Http Bytes Received",
-    "displayNameShort": "Bytes Received",
+    "displayNameShort": "Tomcat Bytes Received",
     "unit": "bytecount"
   },
   "TOMCAT_HTTP_BYTES_SENT": {
@@ -12,7 +12,7 @@
     "defaultResolutionMS": 1000,
     "description": "Total number of bytes sent by Tomcat from the start of the process.",
     "displayName": "Tomcat Http Bytes Sent",
-    "displayNameShort": "Bytes Sent",
+    "displayNameShort": "Tomcat Bytes Sent",
     "unit": "bytecount"
   },
   "TOMCAT_HTTP_CURRENT_THREAD_BUSY": {
@@ -20,15 +20,15 @@
     "defaultResolutionMS": 1000,
     "description": "Total Tomcat Http Worker busy threads.",
     "displayName": "Busy Threads Count",
-    "displayNameShort": "Busy Threads",
+    "displayNameShort": "Tomcat Busy Threads",
     "unit": "number"
   },
   "TOMCAT_HTTP_CURRENT_THREAD_COUNT": {
     "defaultAggregate": "AVG",
     "defaultResolutionMS": 1000,
     "description": "Tomcat Http Worker current thread count.",
-    "displayName": "Current Thread Count",
-    "displayNameShort": "Thread Count",
+    "displayName": "Tomcat Current Thread Count",
+    "displayNameShort": "Tomcat Thread Count",
     "unit": "number"
   },
   "TOMCAT_HTTP_ERROR_COUNT": {
@@ -36,15 +36,15 @@
     "defaultResolutionMS": 1000,
     "description": "Total number of errors informed by the Tomcat Http Worker process.",
     "displayName": "Tomcat Requests Error Count",
-    "displayNameShort": "Error Count",
+    "displayNameShort": "Tomcat Error Count",
     "unit": "number"
   },
   "TOMCAT_HTTP_MAX_PROCESSING_TIME": {
     "defaultAggregate": "MAX",
     "defaultResolutionMS": 1000,
     "description": "Maximum processing time reached for request (ms).",
-    "displayName": "Max Processing Time",
-    "displayNameShort": "Max Processing Time",
+    "displayName": "Tomcat Max Processing Time",
+    "displayNameShort": "Tomcat Max Processing Time",
     "unit": "duration"
   },
   "TOMCAT_HTTP_REQUEST_COUNT": {
@@ -52,7 +52,7 @@
     "defaultResolutionMS": 1000,
     "description": "Total number of requests processed by the Tomcat Http Worker process.",
     "displayName": "Tomcat Request Count",
-    "displayNameShort": "Request Count",
+    "displayNameShort": "Tomcat Request Count",
     "unit": "number"
   },
   "TOMCAT_JVM_FREE_MEMORY": {
@@ -60,55 +60,55 @@
     "defaultResolutionMS": 1000,
     "description": "",
     "displayName": "Tomcat JVM Free Memory",
-    "displayNameShort": "JVM Free Memory",
+    "displayNameShort": "Tomcat JVM Free Memory",
     "unit": "bytecount"
   },
   "TOMCAT_JVM_TOTAL_MEMORY": {
     "defaultAggregate": "AVG",
     "defaultResolutionMS": 1000,
     "description": "Tomcat JVM Total memory used in MB.",
-    "displayName": "JVM Total Memory",
-    "displayNameShort": "JVM Tot Mem Used",
+    "displayName": "Tomcat JVM Total Memory",
+    "displayNameShort": "Tomcat JVM Tot Mem Used",
     "unit": "bytecount"
   },
   "TOMCAT_MEMPOOL_HEAP_CMS_OLD_GEN": {
     "defaultAggregate": "AVG",
     "defaultResolutionMS": 1000,
     "description": "CMS Old Gen heap memory pool used percentage",
-    "displayName": "CMS Old Gen Used",
-    "displayNameShort": "CMS Old Gen Used",
+    "displayName": "Tomcat CMS Old Gen Used",
+    "displayNameShort": "Tomcat CMS Old Gen Used",
     "unit": "percent"
   },
   "TOMCAT_MEMPOOL_HEAP_EDEN_SPACE": {
     "defaultAggregate": "MAX",
     "defaultResolutionMS": 1000,
     "description": "Eden Space heap memory pool used percentage",
-    "displayName": "Eden Space Used",
-    "displayNameShort": "Eden Space Used",
+    "displayName": "Tomcat Eden Space Used",
+    "displayNameShort": "Tomcat Eden Space Used",
     "unit": "percent"
   },
   "TOMCAT_MEMPOOL_HEAP_SURVIVOR_SPACE": {
     "defaultAggregate": "MAX",
     "defaultResolutionMS": 1000,
     "description": "Survivor Space heap memory pool used percentage",
-    "displayName": "Survivor Space Used",
-    "displayNameShort": "Survivor Space Used",
+    "displayName": "Tomcat Survivor Space Used",
+    "displayNameShort": "Tomcat Survivor Space Used",
     "unit": "percent"
   },
   "TOMCAT_MEMPOOL_NONHEAP_CMS_PERM_GEN": {
     "defaultAggregate": "MAX",
     "defaultResolutionMS": 1000,
     "description": "CMS Perm Gen non-heap memory pool used percentage",
-    "displayName": "CMS Perm Gen Used",
-    "displayNameShort": "CMS Perm Gen Used",
+    "displayName": "Tomcat CMS Perm Gen Used",
+    "displayNameShort": "Tomcat CMS Perm Gen Used",
     "unit": "percent"
   },
   "TOMCAT_MEMPOOL_NONHEAP_CODE_CACHE": {
     "defaultAggregate": "MAX",
     "defaultResolutionMS": 1000,
     "description": "Code Cache non-heap memory pool used percentage",
-    "displayName": "Code Cache Used",
-    "displayNameShort": "Code Cache Used",
+    "displayName": "Tomcat Code Cache Used",
+    "displayNameShort": "Tomcat Code Cache Used",
     "unit": "percent"
   }
 }

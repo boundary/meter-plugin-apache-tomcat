@@ -16,8 +16,8 @@ A Boundary plugin that collects metrics from the Tomcat default [Manager Web App
 
 #### Boundary Meter Versions v4.2 or later
 
-- To install new meter go to Settings->Installation or [see instructons](https://help.boundary.com/hc/en-us/sections/200634331-Installation).
-- To upgrade the meter to the latest version - [see instructons](https://help.boundary.com/hc/en-us/articles/201573102-Upgrading-the-Boundary-Meter).
+- To install new meter go to Settings->Installation or [see instructions](https://help.boundary.com/hc/en-us/sections/200634331-Installation).
+- To upgrade the meter to the latest version - [see instructions](https://help.boundary.com/hc/en-us/articles/201573102-Upgrading-the-Boundary-Meter).
 
 ### Plugin Setup
 
@@ -48,7 +48,7 @@ Then verify that statistics are being collected by visiting http://yourserver.co
 |Host                  |host            |string   |The host name to gain access to the admin manager                                        |
 |Port                  |port            |string   |The host port to gain access to the admin manager                                        |
 |Path                  |path            |string   |The URI path to gain access to the admin manager                                         |
-|User Name             |username        |string   |The user name to gain access to the admin manager                                        |
+|Username             |username        |string   |The user name to gain access to the admin manager                                        |
 |Password              |password        |string   |The password to gain access to the admin manager                                         |
 |Poll Interval         |pollInterval    |integer  |How often (in milliseconds) to poll the Apache Tomcat node for metrics (default: 1000).  |
 |Source                |source          |string   |The source to display in the legend for this instance.                                    |

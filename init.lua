@@ -15,16 +15,16 @@
 local framework = require('framework')
 local Plugin = framework.Plugin
 local WebRequestDataSource = framework.WebRequestDataSource
-local string = require('string')
 local round = framework.util.round
 local auth = framework.util.auth
 local isHttpSuccess = framework.util.isHttpSuccess
 local megaBytesToBytes = framework.util.megaBytesToBytes
 local percentage = framework.util.percentage
 local compose = framework.functional.compose
+local notEmpty = framework.string.notEmpty
 
 local function parseMetric(data, pattern)
-  local val = string.match(data, pattern)
+  local val = data:match(pattern)
   return tonumber(round(val, 2))
 end
 
@@ -55,8 +55,8 @@ end
 local params = framework.params
 
 local options = {}
-options.host = params.host
-options.port = params.port
+options.host = notEmpty(params.host, '127.0.0.1')
+options.port = notEmpty(params.port, 80)
 options.path = params.path
 options.source = params.source
 options.auth = auth(params.username, params.password)
