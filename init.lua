@@ -43,10 +43,10 @@ local function parse(data)
   vals['TOMCAT_HTTP_ERROR_COUNT'] = parseMetric(data, 'Error count: (%d+)')
   vals['TOMCAT_HTTP_BYTES_SENT'] = parseBytes(data, 'Bytes sent: (%d+%.%d+) MB')
   vals['TOMCAT_HTTP_BYTES_RECEIVED'] = parseBytes(data, 'Bytes received: (%d+%.%d+) MB')
-  vals['TOMCAT_MEMPOOL_HEAP_CMS_OLD_GEN'] = parsePercentage(data, 'CMS Old Gen</td><td>Heap memory</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB %((%d+)%%%)</td>')
+  vals['TOMCAT_MEMPOOL_HEAP_CMS_OLD_GEN'] = parsePercentage(data, 'Tenured Gen</td><td>Heap memory</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB %((%d+)%%%)</td>')
   vals['TOMCAT_MEMPOOL_HEAP_EDEN_SPACE'] = parsePercentage(data, 'Eden Space</td><td>Heap memory</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB %((%d+)%%%)</td>')
   vals['TOMCAT_MEMPOOL_HEAP_SURVIVOR_SPACE'] = parsePercentage(data, 'Survivor Space</td><td>Heap memory</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB %((%d+)%%%)</td>')
-  vals['TOMCAT_MEMPOOL_NONHEAP_CMS_PERM_GEN'] = parsePercentage(data, 'CMS Perm Gen</td><td>Non%-heap memory</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB %((%d+)%%%)</td>')
+  vals['TOMCAT_MEMPOOL_NONHEAP_CMS_PERM_GEN'] = parsePercentage(data, 'Perm Gen</td><td>Non%-heap memory</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB %((%d+)%%%)</td>')
   vals['TOMCAT_MEMPOOL_NONHEAP_CODE_CACHE'] = parsePercentage(data, 'Code Cache</td><td>Non%-heap memory</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB</td><td>%d+%.%d+ MB %((%d+)%%%)</td>')
 
   return vals
