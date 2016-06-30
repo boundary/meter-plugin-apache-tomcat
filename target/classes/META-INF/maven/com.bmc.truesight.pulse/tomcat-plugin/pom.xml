@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.bmc.truesight.pulse</groupId>
+  <artifactId>tomcat-plugin</artifactId>
+  <version>0.0.1</version>
+  <description>tomcat plugin project</description>
+  
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <!-- plugin versions -->
+    <maven-compiler-version>3.1</maven-compiler-version>
+
+    <!-- java versions -->
+    <java-target-version>1.7</java-target-version>
+    <java-source-version>1.7</java-source-version>
+  </properties>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.boundary</groupId>
+  		<artifactId>java-plugin-sdk</artifactId>
+  		<version>0.6.2</version>
+  	</dependency>
+  </dependencies>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-version}</version>
+        <configuration>
+          <source>${java-source-version}</source>
+          <target>${java-target-version}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <finalName>${project.artifactId}-${project.version}-full</finalName>
+          <appendAssemblyId>false</appendAssemblyId>
+          <archive>
+            <manifest>
+              <mainClass>com.bmc.truesight.pulse.plugin.Tomcat</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-jar-with-dependencies</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.4.0</version>
+        <configuration>
+          <classpathScope>compile</classpathScope>
+          <mainClass>com.truesightpulse.plugin.Cassandra</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,6 +1,6 @@
 {
   "TOMCAT_HTTP_BYTES_RECEIVED": {
-    "defaultAggregate": "MAX",
+    "defaultAggregate": "AVG",
     "defaultResolutionMS": 1000,
     "description": "Total number of bytes received by Tomcat from the start of the process.",
     "displayName": "Tomcat Http Bytes Received",
@@ -19,8 +19,8 @@
     "defaultAggregate": "AVG",
     "defaultResolutionMS": 1000,
     "description": "Total Tomcat Http Worker busy threads.",
-    "displayName": "Busy Threads Count",
-    "displayNameShort": "Tomcat Busy Threads",
+    "displayName": "Tomcat Busy Threads Count",
+    "displayNameShort": "Tomcat Busy Threads Count",
     "unit": "number"
   },
   "TOMCAT_HTTP_CURRENT_THREAD_COUNT": {
@@ -55,29 +55,29 @@
     "displayNameShort": "Tomcat Request Count",
     "unit": "number"
   },
-  "TOMCAT_JVM_FREE_MEMORY": {
+  "TOMCAT_HEAP_MEMORY_USAGE": {
     "defaultAggregate": "AVG",
     "defaultResolutionMS": 1000,
-    "description": "",
-    "displayName": "Tomcat JVM Free Memory",
-    "displayNameShort": "Tomcat JVM Free Memory",
+    "description": "Tomcat Heap Memory Usage",
+    "displayName": "Tomcat Heap Memory Usage",
+    "displayNameShort": "Tomcat Heap Memory Usage",
     "unit": "bytecount"
   },
-  "TOMCAT_JVM_TOTAL_MEMORY": {
-    "defaultAggregate": "AVG",
+  "TOMCAT_NON_HEAP_MEMORY_USAGE": {
+    "defaultAggregate": "MAX",
     "defaultResolutionMS": 1000,
-    "description": "Tomcat JVM Total memory used in MB.",
-    "displayName": "Tomcat JVM Total Memory",
-    "displayNameShort": "Tomcat JVM Tot Mem Used",
+    "description": "Tomcat JVM Non Heap memory used in MB.",
+    "displayName": "Tomcat NonHeap Memory Usage",
+    "displayNameShort": "Tomcat NonHeap Memory Usage",
     "unit": "bytecount"
   },
-  "TOMCAT_MEMPOOL_HEAP_CMS_OLD_GEN": {
-    "defaultAggregate": "AVG",
+  "TOMCAT_MEMPOOL_HEAP_OLD/TENURED_GEN": {
+    "defaultAggregate": "MAX",
     "defaultResolutionMS": 1000,
-    "description": "CMS Old Gen heap memory pool used percentage",
-    "displayName": "Tomcat CMS Old Gen Used",
-    "displayNameShort": "Tomcat CMS Old Gen Used",
-    "unit": "percent"
+    "description": "Old/Tenured Gen heap memory pool used percentage",
+    "displayName": "Tomcat Old/Tenured Gen Used",
+    "displayNameShort": "Tomcat  Old/Tenured Gen Used",
+    "unit": "bytecount"
   },
   "TOMCAT_MEMPOOL_HEAP_EDEN_SPACE": {
     "defaultAggregate": "MAX",
@@ -85,7 +85,7 @@
     "description": "Eden Space heap memory pool used percentage",
     "displayName": "Tomcat Eden Space Used",
     "displayNameShort": "Tomcat Eden Space Used",
-    "unit": "percent"
+    "unit": "bytecount"
   },
   "TOMCAT_MEMPOOL_HEAP_SURVIVOR_SPACE": {
     "defaultAggregate": "MAX",
@@ -93,15 +93,7 @@
     "description": "Survivor Space heap memory pool used percentage",
     "displayName": "Tomcat Survivor Space Used",
     "displayNameShort": "Tomcat Survivor Space Used",
-    "unit": "percent"
-  },
-  "TOMCAT_MEMPOOL_NONHEAP_CMS_PERM_GEN": {
-    "defaultAggregate": "MAX",
-    "defaultResolutionMS": 1000,
-    "description": "CMS Perm Gen non-heap memory pool used percentage",
-    "displayName": "Tomcat CMS Perm Gen Used",
-    "displayNameShort": "Tomcat CMS Perm Gen Used",
-    "unit": "percent"
+    "unit": "bytecount"
   },
   "TOMCAT_MEMPOOL_NONHEAP_CODE_CACHE": {
     "defaultAggregate": "MAX",
@@ -109,6 +101,23 @@
     "description": "Code Cache non-heap memory pool used percentage",
     "displayName": "Tomcat Code Cache Used",
     "displayNameShort": "Tomcat Code Cache Used",
-    "unit": "percent"
+    "unit": "bytecount"
+  },
+  "TOMCAT_MEMPOOL_NONHEAP_METASPACE": {
+    "defaultAggregate": "MAX",
+    "defaultResolutionMS": 1000,
+    "description": "Metaspace non-heap memory pool used percentage",
+    "displayName": "Tomcat Metaspace Used",
+    "displayNameShort": "Tomcat Metaspace Used",
+    "unit": "bytecount"
+  },
+  "TOMCAT_MEMPOOL_NONHEAP_PERM_GEN": {
+    "defaultAggregate": "MAX",
+    "defaultResolutionMS": 1000,
+    "description": "Perm Gen non-heap memory pool used percentage",
+    "displayName": "Tomcat Perm Gen Used",
+    "displayNameShort": "Tomcat Perm Gen Used",
+    "unit": "bytecount"
   }
+  
 }
