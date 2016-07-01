@@ -1,0 +1,397 @@
+{
+  "map": [
+    {
+      "mbean": "Catalina:type=GlobalRequestProcessor,name=\"http-bio-8080\"",
+      "attributes": [
+       	{
+          "attribute": "bytesReceived",
+          "dataType": "long",
+          "metricName": "TOMCAT_HTTP_BYTES_RECEIVED",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "Catalina:type=GlobalRequestProcessor,name=\"http-apr-8080\"",
+      "attributes": [
+       	{
+          "attribute": "bytesReceived",
+          "dataType": "long",
+          "metricName": "TOMCAT_HTTP_BYTES_RECEIVED",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "Catalina:type=GlobalRequestProcessor,name=\"http-bio-8080\"",
+      "attributes": [
+       	{
+          "attribute": "bytesSent",
+          "dataType": "long",
+          "metricName": "TOMCAT_HTTP_BYTES_SENT",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "Catalina:type=GlobalRequestProcessor,name=\"http-apr-8080\"",
+      "attributes": [
+       	{
+          "attribute": "bytesSent",
+          "dataType": "long",
+          "metricName": "TOMCAT_HTTP_BYTES_SENT",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "Catalina:type=ThreadPool,name=\"http-bio-8080\"",
+      "attributes": [
+       	{
+          "attribute": "currentThreadsBusy",
+          "dataType": "int",
+          "metricName": "TOMCAT_HTTP_CURRENT_THREAD_BUSY",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "Catalina:type=ThreadPool,name=\"http-apr-8080\"",
+      "attributes": [
+       	{
+          "attribute": "currentThreadsBusy",
+          "dataType": "int",
+          "metricName": "TOMCAT_HTTP_CURRENT_THREAD_BUSY",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "Catalina:type=ThreadPool,name=\"http-bio-8080\"",
+      "attributes": [
+       	{
+          "attribute": "currentThreadCount",
+          "dataType": "int",
+          "metricName": "TOMCAT_HTTP_CURRENT_THREAD_COUNT",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "Catalina:type=ThreadPool,name=\"http-apr-8080\"",
+      "attributes": [
+       	{
+          "attribute": "currentThreadCount",
+          "dataType": "int",
+          "metricName": "TOMCAT_HTTP_CURRENT_THREAD_COUNT",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "Catalina:type=GlobalRequestProcessor,name=\"http-bio-8080\"",
+      "attributes": [
+       	{
+          "attribute": "errorCount",
+          "dataType": "int",
+          "metricName": "TOMCAT_HTTP_ERROR_COUNT",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "Catalina:type=GlobalRequestProcessor,name=\"http-apr-8080\"",
+      "attributes": [
+       	{
+          "attribute": "errorCount",
+          "dataType": "int",
+          "metricName": "TOMCAT_HTTP_ERROR_COUNT",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "Catalina:type=GlobalRequestProcessor,name=\"http-bio-8080\"",
+      "attributes": [
+       	{
+          "attribute": "processingTime",
+          "dataType": "long",
+          "metricName": "TOMCAT_HTTP_MAX_PROCESSING_TIME",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "Catalina:type=GlobalRequestProcessor,name=\"http-apr-8080\"",
+      "attributes": [
+       	{
+          "attribute": "processingTime",
+          "dataType": "long",
+          "metricName": "TOMCAT_HTTP_MAX_PROCESSING_TIME",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "Catalina:type=GlobalRequestProcessor,name=\"http-bio-8080\"",
+      "attributes": [
+       	{
+          "attribute": "requestCount",
+          "dataType": "int",
+          "metricName": "TOMCAT_HTTP_REQUEST_COUNT",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "Catalina:type=GlobalRequestProcessor,name=\"http-apr-8080\"",
+      "attributes": [
+       	{
+          "attribute": "requestCount",
+          "dataType": "int",
+          "metricName": "TOMCAT_HTTP_REQUEST_COUNT",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "java.lang:type=Memory",
+      "attributes": [
+       	{
+          "attribute": "HeapMemoryUsage",
+          "dataType": "javax.management.openmbean.CompositeData",
+          "metricName": "TOMCAT_HEAP_MEMORY_USAGE",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "java.lang:type=Memory",
+      "attributes": [
+       	{
+          "attribute": "NonHeapMemoryUsage",
+          "dataType": "javax.management.openmbean.CompositeData",
+          "metricName": "TOMCAT_NON_HEAP_MEMORY_USAGE",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "java.lang:type=MemoryPool,name=PS Old Gen",
+      "attributes": [
+       	{
+          "attribute": "Usage",
+          "dataType": "javax.management.openmbean.CompositeData",
+          "metricName": "TOMCAT_MEMPOOL_HEAP_OLD/TENURED_GEN",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "java.lang:type=MemoryPool,name=Tenured Gen",
+      "attributes": [
+       	{
+          "attribute": "Usage",
+          "dataType": "javax.management.openmbean.CompositeData",
+          "metricName": "TOMCAT_MEMPOOL_HEAP_OLD/TENURED_GEN",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "java.lang:type=MemoryPool,name=PS Eden Space",
+      "attributes": [
+       	{
+          "attribute": "Usage",
+          "dataType": "javax.management.openmbean.CompositeData",
+          "metricName": "TOMCAT_MEMPOOL_HEAP_EDEN_SPACE",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "java.lang:type=MemoryPool,name=Eden Space",
+      "attributes": [
+       	{
+          "attribute": "Usage",
+          "dataType": "javax.management.openmbean.CompositeData",
+          "metricName": "TOMCAT_MEMPOOL_HEAP_EDEN_SPACE",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "java.lang:type=MemoryPool,name=PS Survivor Space",
+      "attributes": [
+       	{
+          "attribute": "Usage",
+          "dataType": "javax.management.openmbean.CompositeData",
+          "metricName": "TOMCAT_MEMPOOL_HEAP_SURVIVOR_SPACE",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "java.lang:type=MemoryPool,name=Survivor Space",
+      "attributes": [
+       	{
+          "attribute": "Usage",
+          "dataType": "javax.management.openmbean.CompositeData",
+          "metricName": "TOMCAT_MEMPOOL_HEAP_SURVIVOR_SPACE",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "java.lang:type=MemoryPool,name=Code Cache",
+      "attributes": [
+       	{
+          "attribute": "Usage",
+          "dataType": "javax.management.openmbean.CompositeData",
+          "metricName": "TOMCAT_MEMPOOL_NONHEAP_CODE_CACHE",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "java.lang:type=MemoryPool,name=Metaspace",
+      "attributes": [
+       	{
+          "attribute": "Usage",
+          "dataType": "javax.management.openmbean.CompositeData",
+          "metricName": "TOMCAT_MEMPOOL_NONHEAP_METASPACE",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "java.lang:type=MemoryPool,name=Perm Gen",
+      "attributes": [
+       	{
+          "attribute": "Usage",
+          "dataType": "javax.management.openmbean.CompositeData",
+          "metricName": "TOMCAT_MEMPOOL_NONHEAP_PERM_GEN",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "java.lang:type=MemoryPool,name=PS Perm Gen",
+      "attributes": [
+       	{
+          "attribute": "Usage",
+          "dataType": "javax.management.openmbean.CompositeData",
+          "metricName": "TOMCAT_MEMPOOL_NONHEAP_PERM_GEN",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    }
+    
+   
+
+    ]
+}

@@ -1,15 +1,19 @@
 {
-    "name" : "Boundary Apache Tomcat Plugin",
-    "version" : "0.9.1",
+    "name" : "TrueSight Pulse Tomcat",
+    "version" : "0.9.0",
     "meterVersionRequired" : "4.2.0-611",
     "unsupportedPlatforms" : [ ],
-    "tags" : "tomcat",
-    "description": "A Boundary plugin for Tomcat Manager App status page metrics",
-    "icon" : "icon.png",
-    "command": "boundary-meter init.lua",
+    "tags" : "tomcat", 
+    "description": "Monitors Apache Tomcat",
+    "command_lua" : "",
+    "postExtract_lua" : "",
+    "command": "java -jar target/tomcat-plugin-0.0.1-full.jar",
     "postExtract" : "",
+    "ignore" : "",
+    "icon" : "icon.png",
     "metrics" : [
-        "TOMCAT_JVM_FREE_MEMORY",
+
+        "TOMCAT_HEAP_MEMORY_USAGE",
         "TOMCAT_HTTP_CURRENT_THREAD_COUNT",
         "TOMCAT_HTTP_CURRENT_THREAD_BUSY",
         "TOMCAT_HTTP_MAX_PROCESSING_TIME",
@@ -17,77 +21,87 @@
         "TOMCAT_HTTP_ERROR_COUNT",
         "TOMCAT_HTTP_BYTES_SENT",
         "TOMCAT_HTTP_BYTES_RECEIVED",
-        "TOMCAT_JVM_TOTAL_MEMORY",
+        "TOMCAT_NON_HEAP_MEMORY_USAGE",
         "TOMCAT_MEMPOOL_HEAP_EDEN_SPACE",
-        "TOMCAT_MEMPOOL_HEAP_CMS_OLD_GEN",
-        "TOMCAT_MEMPOOL_HEAP_SURVIVOR_SPACE",
-        "TOMCAT_MEMPOOL_NONHEAP_CMS_PERM_GEN",
-        "TOMCAT_MEMPOOL_NONHEAP_CODE_CACHE"
+        "TOMCAT_MEMPOOL_HEAP_OLD/TENURED_GEN",
+        "TOMCAT_MEMPOOL_HEAP_SURVIVOR_SPACE",        
+        "TOMCAT_MEMPOOL_NONHEAP_CODE_CACHE",
+        "TOMCAT_MEMPOOL_NONHEAP_PERM_GEN",
+        "TOMCAT_MEMPOOL_NONHEAP_METASPACE"
     ],
-    "dashboards": [
-    {   "name" : "Tomcat Http Service",
-        "layout" : "d-w=4&d-h=2&d-pad=5&d-bg=none&d-g-TOMCAT_JVM_FREE_MEMORY=0-0-1-1&d-g-TOMCAT_HTTP_CURRENT_THREAD_COUNT=1-0-1-1&d-g-TOMCAT_HTTP_CURRENT_THREAD_BUSY=2-0-1-1&d-g-TOMCAT_HTTP_MAX_PROCESSING_TIME=3-0-1-1&d-g-TOMCAT_HTTP_REQUEST_COUNT=0-1-1-1&d-g-TOMCAT_HTTP_ERROR_COUNT=1-1-1-1&d-g-TOMCAT_HTTP_BYTES_SENT=2-1-1-1&d-g-TOMCAT_HTTP_BYTES_RECEIVED=3-1-1-1"
+
+    "dashboards" : [ 
+         {   "name" : "Tomcat Http Service",
+        "layout" : "d-w=4&d-h=2&d-pad=5&d-bg=none&d-g-TOMCAT_HEAP_MEMORY_USAGE=0-0-1-1&d-g-TOMCAT_HTTP_CURRENT_THREAD_COUNT=1-0-1-1&d-g-TOMCAT_HTTP_CURRENT_THREAD_BUSY=2-0-1-1&d-g-TOMCAT_HTTP_MAX_PROCESSING_TIME=3-0-1-1&d-g-TOMCAT_HTTP_REQUEST_COUNT=0-1-1-1&d-g-TOMCAT_HTTP_ERROR_COUNT=1-1-1-1&d-g-TOMCAT_HTTP_BYTES_SENT=2-1-1-1&d-g-TOMCAT_HTTP_BYTES_RECEIVED=3-1-1-1"
     },
-    {
+    	{
         "name" : "Tomcat Memory Pool",
-        "layout" : "d-w=3&d-h=2&d-pad=5&d-bg=none&d-g-TOMCAT_JVM_TOTAL_MEMORY=0-0-1-1&d-g-TOMCAT_MEMPOOL_HEAP_EDEN_SPACE=1-0-1-1&d-g-TOMCAT_MEMPOOL_HEAP_CMS_OLD_GEN=2-0-1-1&d-g-TOMCAT_MEMPOOL_HEAP_SURVIVOR_SPACE=0-1-1-1&d-g-TOMCAT_MEMPOOL_NONHEAP_CMS_PERM_GEN=1-1-1-1&d-g-TOMCAT_MEMPOOL_NONHEAP_CODE_CACHE=2-1-1-1"
+        "layout" : "d-w=3&d-h=2&d-pad=5&d-bg=none&d-g-TOMCAT_NON_HEAP_MEMORY_USAGE=0-0-1-1&d-g-TOMCAT_MEMPOOL_HEAP_EDEN_SPACE=1-0-1-1&d-g-TOMCAT_MEMPOOL_HEAP_OLD/TENURED_GEN=2-0-1-1&d-g-TOMCAT_MEMPOOL_HEAP_SURVIVOR_SPACE=0-1-1-1&d-g-TOMCAT_MEMPOOL_NONHEAP_PERM_GEN=1-1-1-1&d-g-TOMCAT_MEMPOOL_NONHEAP_CODE_CACHE=2-1-1-1"
     }
-   ],
+    ],
+
+    "paramArray": {
+        "itemTitle": [
+        "host","port", "source"
+        ],
+        "schemaTitle": "Instance"
+    },
+
     "paramSchema": [
+    {
+        "title": "Name",
+        "name": "name",
+        "description": "A name to identify the Tomcat instance.",
+        "type": "string",
+        "default": "tomcat",
+        "required": true
+    },
     {
         "title": "Host",
         "name": "host",
-        "description": "Host where Apache Tomcat is running",
+        "description": "The host of Tomcat JMX endpoint",
         "type": "string",
         "default": "127.0.0.1",
         "required": true
     },
     {
         "title": "Port",
-        "name": "port",
-        "description": "Port where Apache Tomcat is running",
+        "name" : "port",
+        "description": "The port of Tomcat JMX endpoint",
         "type" : "integer",
-        "default": 80,
-        "required": false 
+        "default": 8999,
+        "required" : true
     },
     {
-        "title": "Path",
-        "name": "path",
-        "description": "Path to the Tomcat Manager App status page (ie. /manager/status).",
-        "type": "string",
-        "default": "/manager/status",
-        "required": true
+        "title" : "User",
+        "name" : "user",
+        "description": "The user of Tomcat JMX endpoint",
+        "type" : "string",
+        "default" : "",
+        "required": false
     },
-    {
-        "title": "Username",
-        "name": "username",
-        "description": "Username with access to the Tomcat Manager App",
-        "type": "string",
-        "default": "",
-        "required": false 
-    },
-    {
-        "title": "Password",
-        "name": "password",
-        "description": "Password for the Tomcat Mannager App",
-        "type": "password",
-        "default": "",
-        "required": false 
+    {   
+        "title" : "Password",
+        "name" : "password",
+        "description" : "The password of Tomcat JMX endpoint",
+        "default" : "",
+        "type" : "password",
+        "required" : false
     },
     {
         "title": "Poll Interval (ms)",
         "name": "pollInterval",
-        "description": "The Poll Interval (in milliseconds) to call the command.",
-        "type": "integer",
-        "default": 1000,
-        "required": false
+        "description": "How often (in milliseconds) to poll for metrics.",
+        "type" : "integer",
+        "default" : 1000,
+        "required" : true
     },
     {
         "title" : "Source",
         "name" : "source",
-        "description" : "The Source to display in the legend for the Tomcat data. It will default to the hostname of the server",
+        "description" : "The Source to display in the legend for the metrics data.  It will default to the hostname of the server",
         "type" : "string",
-        "required" : false
-    }
-    ]
+        "default" : "",
+        "required" : false 
+    }]
 }
