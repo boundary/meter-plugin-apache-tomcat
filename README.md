@@ -29,11 +29,11 @@ In order for the plugin to collect statistics from Tomcat you need to configure 
 		    -Dcom.sun.management.jmxremote.ssl=false
 
 - On Windows:
- 	- set CATALINA_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8999 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Djava.rmi.server.hostname=localhost";
+ 	- set CATALINA_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8999 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Djava.rmi.server.hostname=localhost"
  	
 - On Linux:
-	- $ CATALINA_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8999 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Djava.rmi.server.hostname=localhost";
-	- $ export CATALINA_OPTS; 	
+	- $ CATALINA_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8999 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Djava.rmi.server.hostname=localhost"
+	- $ export CATALINA_OPTS 	
 
 ### Plugin Configuration Fields
 
@@ -48,7 +48,7 @@ In order for the plugin to collect statistics from Tomcat you need to configure 
 
 ### Metrics Collected
 
-| Metric Name |Description |
+| Metric Name | Description |
 |:------------|:-----------:|
 |TOMCAT_JVM_FREE_MEMORY | Free memory of the JVM in MBytes.|
 |TOMCAT_JVM_TOTAL_MEMORY | Total memory of the JVM in Mbytes.|
