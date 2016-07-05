@@ -48,7 +48,7 @@ In order for the plugin to collect statistics from Tomcat you need to configure 
 
 ### Metrics Collected
 
-| Metric Name | Description |
+| Metric Name |Description |
 |:------------|:-----------:|
 |TOMCAT_JVM_FREE_MEMORY | Free memory of the JVM in MBytes.|
 |TOMCAT_JVM_TOTAL_MEMORY | Total memory of the JVM in Mbytes.|
