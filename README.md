@@ -48,7 +48,7 @@ In order for the plugin to collect statistics from Tomcat you need to configure 
 ### Metrics Collected
 
 | Metric Name | Description |
-|:------------|:-----------:|
+|:------------|:-----------|
 |TOMCAT_HEAP_MEMORY_USAGE | Tomcat heap memory usage |
 |TOMCAT_NON_HEAP_MEMORY_USAGE | Tomcat non heap memory usage |
 |TOMCAT_HTTP_CURRENT_THREAD_COUNT | Current thread count|
