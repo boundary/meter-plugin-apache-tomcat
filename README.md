@@ -20,14 +20,15 @@ Collects metrics from a Apache Tomcat instance
 In order for the plugin to collect statistics from Tomcat you need to configure  JMX endpoint for Tomcat installed. To set the CATALINA_OPTS environment variable(assuming JMX endpoint as  8999 of your localhost)
 
 - On Windows (if Tomcat is running as service):
- 	- Enable Apache Service Manager(commons daemon service manager) for the installed service using the following command: 
+ 	- Enable Apache Service Manager(commons daemon service manager) for the installed service using the following command:
+
 		tomcat7w.exe
 
- 		This should start Apache Service Monitor program on your system tray. Click on its icon. select  on the 'Java' tab and append the following on the 'Java Options' text box, one option per line:
+ 	This should start Apache Service Monitor program on your system tray. Click on its icon. select  on the 'Java' tab and append the following on the 'Java Options' text box, one option per line:
  	
- 	-Dcom.sun.management.jmxremote.port=8999
-    	-Dcom.sun.management.jmxremote.authenticate=false
-    	-Dcom.sun.management.jmxremote.ssl=false
+ 		-Dcom.sun.management.jmxremote.port=8999
+    		-Dcom.sun.management.jmxremote.authenticate=false
+    		-Dcom.sun.management.jmxremote.ssl=false
 
 - On Windows:
  	- set CATALINA_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8999 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false	-Djava.rmi.server.hostname=localhost";
