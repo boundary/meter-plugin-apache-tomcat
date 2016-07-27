@@ -31,6 +31,21 @@
       "enabled": true
     },
     {
+      "mbean": "Catalina:type=GlobalRequestProcessor,name=\"http-nio-8080\"",
+      "attributes": [
+       	{
+          "attribute": "bytesReceived",
+          "dataType": "long",
+          "metricName": "TOMCAT_HTTP_BYTES_RECEIVED",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
       "mbean": "Catalina:type=GlobalRequestProcessor,name=\"http-bio-8080\"",
       "attributes": [
        	{
@@ -61,6 +76,21 @@
       "enabled": true
     },
     {
+      "mbean": "Catalina:type=GlobalRequestProcessor,name=\"http-nio-8080\"",
+      "attributes": [
+       	{
+          "attribute": "bytesSent",
+          "dataType": "long",
+          "metricName": "TOMCAT_HTTP_BYTES_SENT",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
       "mbean": "Catalina:type=ThreadPool,name=\"http-bio-8080\"",
       "attributes": [
        	{
@@ -77,6 +107,21 @@
     },
     {
       "mbean": "Catalina:type=ThreadPool,name=\"http-apr-8080\"",
+      "attributes": [
+       	{
+          "attribute": "currentThreadsBusy",
+          "dataType": "int",
+          "metricName": "TOMCAT_HTTP_CURRENT_THREAD_BUSY",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "Catalina:type=ThreadPool,name=\"http-nio-8080\"",
       "attributes": [
        	{
           "attribute": "currentThreadsBusy",
@@ -107,6 +152,21 @@
     },
     {
       "mbean": "Catalina:type=ThreadPool,name=\"http-apr-8080\"",
+      "attributes": [
+       	{
+          "attribute": "currentThreadCount",
+          "dataType": "int",
+          "metricName": "TOMCAT_HTTP_CURRENT_THREAD_COUNT",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "Catalina:type=ThreadPool,name=\"http-nio-8080\"",
       "attributes": [
        	{
           "attribute": "currentThreadCount",
@@ -134,9 +194,24 @@
         }
         ],
       "enabled": true
-    },
+    },    
     {
       "mbean": "Catalina:type=GlobalRequestProcessor,name=\"http-apr-8080\"",
+      "attributes": [
+       	{
+          "attribute": "errorCount",
+          "dataType": "int",
+          "metricName": "TOMCAT_HTTP_ERROR_COUNT",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "Catalina:type=GlobalRequestProcessor,name=\"http-nio-8080\"",
       "attributes": [
        	{
           "attribute": "errorCount",
@@ -167,6 +242,21 @@
     },
     {
       "mbean": "Catalina:type=GlobalRequestProcessor,name=\"http-apr-8080\"",
+      "attributes": [
+       	{
+          "attribute": "processingTime",
+          "dataType": "long",
+          "metricName": "TOMCAT_HTTP_MAX_PROCESSING_TIME",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+    {
+      "mbean": "Catalina:type=GlobalRequestProcessor,name=\"http-nio-8080\"",
       "attributes": [
        	{
           "attribute": "processingTime",
@@ -197,6 +287,21 @@
     },
     {
       "mbean": "Catalina:type=GlobalRequestProcessor,name=\"http-apr-8080\"",
+      "attributes": [
+       	{
+          "attribute": "requestCount",
+          "dataType": "int",
+          "metricName": "TOMCAT_HTTP_REQUEST_COUNT",
+          "key": "used",
+          "metricType": "standard",
+          "scale": 1,
+          "enabled": true
+        }
+        ],
+      "enabled": true
+    },
+     {
+      "mbean": "Catalina:type=GlobalRequestProcessor,name=\"http-nio-8080\"",
       "attributes": [
        	{
           "attribute": "requestCount",
