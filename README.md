@@ -44,9 +44,16 @@ In order for the plugin to collect statistics from Tomcat you need to configure 
 	
 NB : To set the above mentioned environment variable, you can create setenv.bat or setenv.sh, depending on your OS, inside CATALINA_HOME/bin and restart the tomcat. If you are monitoring a remote tomcat instance, in that case, you need to set 
 
-	-Djava.rmi.server.hostname=hostname
+	On Windows:
+	 
+		-Djava.rmi.server.hostname=hostname
+
+	On Linux:
 	
-If you have set credentials for JMX Port, in that that case you have to set
+		-Djava.rmi.server.hostname=$hostname
+
+	
+If you have set credentials for JMX Port, in that case you have to set
 
 	-Dcom.sun.management.jmxremote.authenticate=true	
 
