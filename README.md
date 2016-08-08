@@ -42,7 +42,7 @@ In order for the plugin to collect statistics from Tomcat you need to configure 
 	- $ export CATALINA_OPTS 
 
 	
-NB : To set the above mentioned environment variable, you can create setenv.bat or setenv.sh, depending on your OS, inside CATALINA_HOME/bin and restart the tomcat. If you are monitoring a remote tomcat instance, in that case, you need to set 
+NB: To set the above mentioned environment variable, you can create setenv.bat or setenv.sh, depending on your OS, inside CATALINA_HOME/bin and restart the tomcat. If you are monitoring a remote tomcat instance, in that case, you need to set 
 
 	On Windows:
 	 
