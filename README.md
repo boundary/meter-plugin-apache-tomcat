@@ -72,8 +72,8 @@ If you have set credentials for JMX Port, in that case you have to set
 
 | Metric Name | Description |
 |:------------|:------------|
-|TOMCAT_JVM_FREE_MEMORY | Free memory of the JVM in MBytes.|
-|TOMCAT_JVM_TOTAL_MEMORY | Total memory of the JVM in Mbytes.|
+|TOMCAT_JVM_FREE_MEMORY | Free memory of the JVM in MBytes|
+|TOMCAT_JVM_TOTAL_MEMORY | Total memory of the JVM in Mbytes|
 |TOMCAT_HTTP_CURRENT_THREAD_COUNT | Current thread count|
 |TOMCAT_HTTP_CURRENT_THREAD_BUSY | Current thread busy|
 |TOMCAT_HTTP_MAX_PROCESSING_TIME| Maximum processing time reached for requests (ms)|
