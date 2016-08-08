@@ -50,7 +50,7 @@ NB : To set the above mentioned environment variable, you can create setenv.bat 
 
 	On Linux:
 	
-		-Djava.rmi.server.hostname=$hostname
+		-Djava.rmi.server.hostname=$HOSTNAME
 
 	
 If you have set credentials for JMX Port, in that case you have to set
