@@ -6,7 +6,7 @@ Collects metrics from a Apache Tomcat instance
 
 |     OS    | Linux | Windows | SmartOS | OS X |
 |:----------|:-----:|:-------:|:-------:|:----:|
-| Supported |   v   |    v    |    v    |  v   |
+| Supported |   v   |    v    |         |  v   |
 
 
 
