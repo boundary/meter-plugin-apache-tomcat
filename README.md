@@ -6,7 +6,7 @@ Collects metrics from a Apache Tomcat instance
 
 |     OS    | Linux | Windows | SmartOS | OS X |
 |:----------|:-----:|:-------:|:-------:|:----:|
-| Supported |   v   |    v    |    v    |  v   |
+| Supported |   v   |    v    |         |  v   |
 
 
 
@@ -17,25 +17,49 @@ Collects metrics from a Apache Tomcat instance
 
 ### Plugin Setup
 
-In order for the plugin to collect statistics from Tomcat you need to configure  JMX endpoint for Tomcat installed. To set the CATALINA_OPTS environment variable (assuming JMX endpoint as  8999 of your localhost)
+In order for the plugin to collect statistics from Tomcat you need to configure JMX endpoint for Tomcat installed. To set the CATALINA_OPTS environment variable (assuming JMX endpoint as  8999 of your localhost)
 
 - On Windows (if Tomcat is running as service):
-        - Enable Apache Service Manager (commons daemon service manager) for the installed service using the  command:
+         Enable Apache Service Manager (commons daemon service manager) for the installed service using the  command:
 	
 		    tomcat7w.exe
 
+<<<<<<< HEAD
 	  This should start Apache Service Monitor program on your system tray. Click on its icon. select  on the 'Java' tab and append the following on the 'Java Options' text box, one option per line:
+=======
+	  This should start Apache Service Monitor program on your system tray. Click on its icon. Select  on the 'Java' tab and append the following on the 'Java Options' text box, one option per line:
+>>>>>>> 05b4b5c1b4cee1b3a127d4cc526a60cd0a95834b
 
 		    -Dcom.sun.management.jmxremote.port=8999
 		    -Dcom.sun.management.jmxremote.authenticate=false
 		    -Dcom.sun.management.jmxremote.ssl=false
 
 - On Windows:
- 	- set CATALINA_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8999  -Dcom.sun.management.jmxremote.ssl=false  -Dcom.sun.management.jmxremote.authenticate=false  -Djava.rmi.server.hostname=localhost"
+ 	- set CATALINA_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8999  
+ 	-Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false  
+	-Djava.rmi.server.hostname=localhost"
  	
 - On Linux:
-	- $ CATALINA_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8999  -Dcom.sun.management.jmxremote.ssl=false  -Dcom.sun.management.jmxremote.authenticate=false  -Djava.rmi.server.hostname=localhost"
-	- $ export CATALINA_OPTS 	
+	- $ CATALINA_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8999  
+	-Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false  
+	-Djava.rmi.server.hostname=localhost"
+	- $ export CATALINA_OPTS 
+
+	
+NB: To set the above mentioned environment variable, you can create setenv.bat or setenv.sh, depending on your OS, inside CATALINA_HOME/bin and restart the tomcat. If you are monitoring a remote tomcat instance, in that case, you need to set 
+
+	On Windows:
+	 
+		-Djava.rmi.server.hostname=hostname
+
+	On Linux:
+	
+		-Djava.rmi.server.hostname=$HOSTNAME
+
+	
+If you have set credentials for JMX Port, in that case you have to set
+
+	-Dcom.sun.management.jmxremote.authenticate=true	
 
 ### Plugin Configuration Fields
 
@@ -52,8 +76,8 @@ In order for the plugin to collect statistics from Tomcat you need to configure 
 
 | Metric Name | Description |
 |:------------|:------------|
-|TOMCAT_JVM_FREE_MEMORY | Free memory of the JVM in MBytes.|
-|TOMCAT_JVM_TOTAL_MEMORY | Total memory of the JVM in Mbytes.|
+|TOMCAT_JVM_FREE_MEMORY | Free memory of the JVM in MBytes|
+|TOMCAT_JVM_TOTAL_MEMORY | Total memory of the JVM in Mbytes|
 |TOMCAT_HTTP_CURRENT_THREAD_COUNT | Current thread count|
 |TOMCAT_HTTP_CURRENT_THREAD_BUSY | Current thread busy|
 |TOMCAT_HTTP_MAX_PROCESSING_TIME| Maximum processing time reached for requests (ms)|
@@ -78,3 +102,4 @@ In order for the plugin to collect statistics from Tomcat you need to configure 
 ### References
 
 http://tomcat.apache.org/
+
