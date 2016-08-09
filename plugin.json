@@ -1,6 +1,6 @@
 {
     "name" : "TrueSight Pulse Tomcat",
-    "version" : "0.9.0",
+    "version" : "0.9.5",
     "meterVersionRequired" : "4.2.0-611",
     "unsupportedPlatforms" : [ ],
     "tags" : "tomcat", 
