@@ -57,7 +57,9 @@ NB: To set the above mentioned environment variable, you can create setenv.bat o
 	
 If you have set credentials for JMX Port, in that case you have to set
 
-	-Dcom.sun.management.jmxremote.authenticate=true	
+	-Dcom.sun.management.jmxremote.authenticate=true
+	-Dcom.sun.management.jmxremote.password.file=$JAVA_HOME/jre/lib/management/jmxremote.password
+	-Dcom.sun.management.jmxremote.access.file=$JAVA_HOME/jre/lib/management/jmxremote.access
 
 ### Plugin Configuration Fields
 
