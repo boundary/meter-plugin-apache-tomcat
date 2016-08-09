@@ -25,8 +25,6 @@ In order for the plugin to collect statistics from Tomcat you need to configure 
 		    tomcat7w.exe
 
 
-	  This should start Apache Service Monitor program on your system tray. Click on its icon. select  on the 'Java' tab and append the following on the 'Java Options' text box, one option per line:
-=======
 	  This should start Apache Service Monitor program on your system tray. Click on its icon. Select  on the 'Java' tab and append the following on the 'Java Options' text box, one option per line:
 
 
