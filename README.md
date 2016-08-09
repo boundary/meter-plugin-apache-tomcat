@@ -24,11 +24,11 @@ In order for the plugin to collect statistics from Tomcat you need to configure 
 	
 		    tomcat7w.exe
 
-<<<<<<< HEAD
+
 	  This should start Apache Service Monitor program on your system tray. Click on its icon. select  on the 'Java' tab and append the following on the 'Java Options' text box, one option per line:
 =======
 	  This should start Apache Service Monitor program on your system tray. Click on its icon. Select  on the 'Java' tab and append the following on the 'Java Options' text box, one option per line:
->>>>>>> 05b4b5c1b4cee1b3a127d4cc526a60cd0a95834b
+
 
 		    -Dcom.sun.management.jmxremote.port=8999
 		    -Dcom.sun.management.jmxremote.authenticate=false
