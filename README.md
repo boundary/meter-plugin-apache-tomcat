@@ -37,7 +37,7 @@ In order for the plugin to collect statistics from Tomcat you need to configure 
  	-Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false  
 	-Djava.rmi.server.hostname=localhost"
  	
-- On Linux & OSx:
+- On Linux & OS X:
 	- $ CATALINA_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8999  
 	-Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false  
 	-Djava.rmi.server.hostname=localhost"
@@ -50,7 +50,7 @@ NB: To set the above mentioned environment variable, you can create setenv.bat o
 	 
 		-Djava.rmi.server.hostname=hostname
 
-	On Linux & OSx:
+	On Linux & OS X:
 	
 		-Djava.rmi.server.hostname=$HOSTNAME
 
